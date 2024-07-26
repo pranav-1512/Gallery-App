@@ -46,7 +46,7 @@ function Home() {
 
   const fetchUsername = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/auth/profile', {
+      const response = await axios.get('https://gallery-app-server-sigma.vercel.app/auth/profile', {
         headers: {
           'Authorization': localStorage.getItem('authtoken')
         }
@@ -59,7 +59,7 @@ function Home() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/all', {
+      const response = await axios.get('https://gallery-app-server-sigma.vercel.app/api/all', {
         headers: {
           'Authorization': localStorage.getItem('authtoken')
         }
@@ -73,7 +73,7 @@ function Home() {
 
   const fetchTags = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tags', {
+      const response = await axios.get('https://gallery-app-server-sigma.vercel.app/api/tags', {
         headers: {
           'Authorization': localStorage.getItem('authtoken')
         }
@@ -101,7 +101,7 @@ function Home() {
     formData.append('tag', tag || 'No Tag');
 
     try {
-      await axios.post('http://localhost:5000/api/upload', formData, {
+      await axios.post('https://gallery-app-server-sigma.vercel.app/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': localStorage.getItem('authtoken')
@@ -147,7 +147,7 @@ function Home() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/update/${modalImage._id}`,
+      const response = await axios.put(`https://gallery-app-server-sigma.vercel.app/api/update/${modalImage._id}`,
         {
           description: editDescription,
           tag: editTag || 'No Tag'
@@ -178,7 +178,7 @@ function Home() {
     if (window.confirm('Are you sure you want to delete this image?')) {
       try {
         setDeleteProgress(10);
-        const response = await axios.delete(`http://localhost:5000/api/delete/${modalImage._id}`, {
+        const response = await axios.delete(`https://gallery-app-server-sigma.vercel.app/api/delete/${modalImage._id}`, {
           headers: {
             'Authorization': localStorage.getItem('authtoken')
           },
@@ -318,7 +318,7 @@ function Home() {
               <div key={image._id} className="col">
                 <div className="card h-100" onClick={() => openModal(image)}>
                   <img
-                    src={`http://localhost:5000/api/file/${image.filename}`}
+                    src={`https://gallery-app-server-sigma.vercel.app/api/file/${image.filename}`}
                     className="card-img-top"
                     alt={image.description || 'Uploaded image'}
                     style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
@@ -363,7 +363,7 @@ function Home() {
                   </div>
                   <div className="modal-body">
                     <img
-                      src={`http://localhost:5000/api/file/${modalImage.filename}`}
+                      src={`https://gallery-app-server-sigma.vercel.app/api/file/${modalImage.filename}`}
                       alt={modalImage.description || 'Uploaded image'}
                       className="img-fluid mb-3"
                       style={{ maxHeight: '60vh', width: '100%', objectFit: 'contain' }}
