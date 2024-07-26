@@ -317,16 +317,17 @@ function Home() {
             {filteredImages.map((image) => (
               <div key={image._id} className="col">
                 <div className="card h-100" onClick={() => openModal(image)}>
-                  <img
-                    src={`https://gallery-app-server-sigma.vercel.app/api/file/${image.filename}`}
-                    className="card-img-top"
-                    alt={image.description || 'Uploaded image'}
-                    style={{ height: '200px', objectFit: 'cover', cursor: 'pointer' }}
-                    onError={(e) => {
-                      console.error('Error loading image:', image.filename);
-                      e.target.src = 'path/to/fallback/image.jpg';
-                    }}
-                  />
+                  <div className="card-img-container">
+                    <img
+                      src={`https://gallery-app-server-sigma.vercel.app/api/file/${image.filename}`}
+                      className="card-img-top"
+                      alt={image.description || 'Uploaded image'}
+                      onError={(e) => {
+                        console.error('Error loading image:', image.filename);
+                        e.target.src = 'path/to/fallback/image.jpg';
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
