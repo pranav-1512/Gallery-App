@@ -9,7 +9,7 @@ const cors = require('cors')
 // app.use(cors())
 app.use(cors(
     {
-        origin: [],
+        origin: ["https://gallery-app-client-ashy.vercel.app"],
         methods: ["POST","GET"],
         credentials: true
     }
