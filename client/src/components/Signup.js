@@ -11,7 +11,7 @@ function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await axios.post('http://localhost:5000/auth/signup', {
+            const response = await axios.post('https://gallery-app-server-sigma.vercel.app/auth/signup', {
                 name,
                 email,
                 password
