@@ -7,13 +7,11 @@ const PORT = 5000
 const cors = require('cors')
 
 // app.use(cors())
-app.use(cors(
-    {
-        origin: ["https://gallery-app-client-ashy.vercel.app"],
-        methods: ["POST","GET"],
-        credentials: true
-    }
-))
+app.use(cors({
+  origin: ["https://gallery-app-client-ashy.vercel.app"],
+  methods: ["POST", "GET", "OPTIONS", "DELETE", "PUT"],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
