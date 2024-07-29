@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://gallery-app-server-sigma.vercel.app/auth/login', {
+      const res = await axios.post('https://gallery-backend-u0i7.onrender.com/auth/login', {
         email: email,
         password: password,
       });
